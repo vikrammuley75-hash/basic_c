@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+bool isPrime(int n) {
+    // 0, 1, and negative numbers are not prime
+    if (n <= 1) {
+        return false;
+    }
+    
+    // Check for divisors from 2 up to sqrt(n)
+    // Using i <= n / i prevents integer overflow compared to i * i <= n
+    for (int i = 2; i <= n / i; i++) {
+        if (n % i == 0) {
+            return false; // Found a divisor, so it's not prime
+        }
+    }
+    
+    return true; // No divisors found, it is prime
+}
+
+int main() {
+    int num;
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+
+    if (isPrime(num)) {
+        printf("%d is a prime number.\n", num);
+    } else {
+        printf("%d is not a prime number.\n", num);
+    }
+
+    return 0;
+}
