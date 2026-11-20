@@ -1,3 +1,1 @@
-# basic_c
-some random code
-rohit 
+this project is ringbuffer project based on c
